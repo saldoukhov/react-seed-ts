@@ -2,15 +2,24 @@ import * as React from 'react';
 import * as Loadable from 'react-loadable';
 import {BrowserRouter as Router, Link, Route} from "react-router-dom";
 import './App.css';
+import {AddTodo} from './containers/AddTodo';
+import VisibleTodoList from "./containers/VisibleTodoList";
+import Footer from "./components/Footer";
 
-const LoadableBar = Loadable({
-    loader: () => import('./components/Bar'),
+const LoadableAbout = Loadable({
+    loader: () => import('./components/About'),
     loading() {
         return <div>Loading...</div>
     }
 });
 
-const Home = () => (<div>Home</div>);
+const Home = () => (
+    <div>
+        <AddTodo />
+        <VisibleTodoList />
+        <Footer />
+    </div>
+);
 
 const BasicExample = () => (
     <Router>
@@ -22,15 +31,12 @@ const BasicExample = () => (
                 <li>
                     <Link to="/about">About</Link>
                 </li>
-                <li>
-                    <Link to="/topics">Topics</Link>
-                </li>
             </ul>
 
             <hr/>
 
-            <Route exact path="/" component={Home}/>
-            <Route path="/about" component={LoadableBar}/>
+            <Route exact={true} path="/" component={Home}/>
+            <Route path="/about" component={LoadableAbout}/>
         </div>
     </Router>
 );

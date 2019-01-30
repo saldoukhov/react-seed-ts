@@ -1,12 +1,6 @@
 ---
-description: Description
+description: 'Minimal React app with TypeScript, code splitting, router and redux'
 ---
 
-# README
-
-Minimal React app with TypeScript, code splitting, router and redux
-
-| Col1 | Col2 |
-| :--- | :--- |
-| Content1 | Content2 |
+# React TypeScript Seed
 
